@@ -5,6 +5,11 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'us-central1-docker.pkg.dev/haks-c1/my-docker-repo/httpd-image', '.' ]
+options:
+  logging: CLOUD_LOGGING_ONLY
+  build:
+    service_account: 669157487352-compute@developer.gserviceaccount.com 	
+    logs_bucket: haks-c1-bucket
     
 # Step 1
 #push the previously built image to ythe docker repo created in Step 0
